@@ -29,9 +29,13 @@ public class AdjacencyLists extends AbstractGraph {
         }
     }
 
+    @Override
     public boolean isEdge(int source, int dest) {
        //complete this method
-       return true;
+     
+      Edge myEdge = new Edge(source,dest);
+      return adjacencyLists.contains(myEdge);
+      
     }
 
     public void insert(Edge edge) {
@@ -42,9 +46,14 @@ public class AdjacencyLists extends AbstractGraph {
             lList = adjacencyLists.get(edge.getDestination());
             lList.add(e);
         }
+      
     }
 
     public void remove(Edge edge) {
         // complete this method
+    }
+
+    private Edge Edge(int source, int dest) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
