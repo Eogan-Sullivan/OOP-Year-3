@@ -25,20 +25,48 @@ public class MatrixGraph extends AbstractGraph {
                     matrix[row][col] = 0.0;        
     }
 
+    @Override
     public boolean isEdge(int source, int dest) {
         //complete this method
-        return true;
+        return matrix[source][dest] == 1;
+    
     }
 
     public void insert(Edge edge) {
         //complete this method
         // if graph is undirected, insert two edges
-        // otherwise, insert just one edge  
+        // otherwise, insert just one edge
+        
+        int row = edge.getSource();
+        int column = edge.getDestination();
+        if(isDirected())
+        {
+             matrix[row][column] = 1;
+        }
+        
+        else{
+        
+           matrix[row][column] = 1;
+           matrix[column][row] = 1;
+     
+        }        
     }
 
     public void remove(Edge edge) {
         //complete this method
         // as for insert method
+         int row = edge.getSource();
+        int column = edge.getDestination();
+        if(isDirected())
+        {
+             matrix[row][column] = 0;
+        }
+        
+        else{
+        
+           matrix[row][column] = 0;
+           matrix[column][row] = 0;
+        }
     }
     
     public void breadthFirstTraversal(int start){
